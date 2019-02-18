@@ -10,7 +10,7 @@ it's a simple way to use the native **Spring Framework Scheduling** into your sp
     <artifactId>spring-boot-starter-data-mongodb</artifactId>
 </dependency>
 <dependency>
-    <groupId>com.netshoes</groupId>
+    <groupId>io.github.nortthon</groupId>
     <artifactId>safe-scheduling-provider-mongodb</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -30,6 +30,7 @@ public TaskScheduler taskScheduler(MongoTemplate mongoTemplate) {
 #### Use like this
 
 ```java
+@Component
 @EnableScheduling
 private JavaClass {
     @SafeScheduled(name = "print-message", lockedFor = 1000L, cron = "*/2 * * * * *")
