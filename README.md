@@ -6,7 +6,7 @@
 it's a simple way to use the native **Spring Framework Scheduling** into your spring-boot application keeping the tasks locked during the executions process avoiding multiples executions.
 
 ### MongoDB Provider
-#### Dependences
+#### 1 Dependences
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -19,7 +19,7 @@ it's a simple way to use the native **Spring Framework Scheduling** into your sp
 </dependency>
 ```
 
-#### TaskScheduler Bean
+#### 2 TaskScheduler Bean
 ```java
 @Bean
 public TaskScheduler taskScheduler(MongoTemplate mongoTemplate) {
@@ -30,7 +30,7 @@ public TaskScheduler taskScheduler(MongoTemplate mongoTemplate) {
 }
 ```
 
-#### Use like this
+#### 3 Use like this
 
 ```java
 @Component
