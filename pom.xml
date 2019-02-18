@@ -14,7 +14,7 @@
 	<modules>
 		<module>core</module>
     	<module>mongo-provider</module>
-		<module>examples</module>
+		<module>example</module>
 	</modules>
 
 	<dependencies>
