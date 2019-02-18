@@ -1,4 +1,7 @@
 # Safe Scheduling
+
+[![Build Status](https://travis-ci.org/nortthon/safe-scheduling.svg?branch=master)](https://travis-ci.org/nortthon/safe-scheduling)
+
 ### What is this?
 it's a simple way to use the native **Spring Framework Scheduling** into your spring-boot application keeping the tasks locked during the executions process avoiding multiples executions.
 
