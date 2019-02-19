@@ -3,19 +3,29 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.nortthon</groupId>
 	<artifactId>safe-scheduling</artifactId>
-	<name>safe-scheduling</name>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+
+	<name>Safe Scheduling</name>
+	<description>it's a simple way to use the native Spring Framework Scheduling into your spring-boot application keeping the tasks locked during the executions process avoiding multiples executions.</description>
+	<url>https://github.com/nortthon/safe-scheduling</url>
+
+	<developers>
+		<developer>
+			<id>nortthon</id>
+			<name>Lucas Augusto</name>
+			<email>nortthon@gmail.com</email>
+		</developer>
+	</developers>
+
+	<modules>
+		<module>core</module>
+		<module>mongo-provider</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-
-	<modules>
-		<module>core</module>
-    	<module>mongo-provider</module>
-		<module>example</module>
-	</modules>
 
 	<dependencies>
 		<dependency>
@@ -44,4 +54,17 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/nortthon/safe-scheduling.git</connection>
+		<developerConnection>scm:git:ssh://github.com:nortthon/safe-scheduling.git</developerConnection>
+		<url>https://github.com/nortthon/safe-scheduling/tree/master</url>
+	</scm>
 </project>
