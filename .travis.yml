@@ -1,1 +1,4 @@
 language: java
+
+after_success:
+  - ./mvnw sonar:sonar -Dsonar.projectKey=nortthon_safe-scheduling -Dsonar.organization=nortthon-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=811383e2014734eda93ba16dda856a5fe5938795
