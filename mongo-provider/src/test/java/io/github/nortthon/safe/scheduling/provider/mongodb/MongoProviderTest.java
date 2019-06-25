@@ -46,6 +46,8 @@ public class MongoProviderTest {
 
         SchedulerControl schedulers = mongoTemplate.findOne(query(where("_id").is("task1")), SchedulerControl.class);
         assertNotNull(schedulers);
+        assertTrue(schedulers.getLockedAt() <= new Date().toInstant().toEpochMilli());
+        assertTrue(schedulers.getLockedUntil() > new Date().toInstant().toEpochMilli());
         assertTrue(runned.get());
     }
 
