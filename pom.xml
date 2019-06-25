@@ -25,6 +25,9 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.coverage.exclusions>
+			io.github.nortthon.safe.scheduling.LockableTaskScheduler.java
+		</sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
