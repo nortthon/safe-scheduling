@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PrintMessage {
 
-    @SafeScheduled(name = "print-message", lockedFor = 1000L, cron = "*/2 * * * * *")
+    @SafeScheduled(name = "print-message", lockedFor = 4000L, cron = "*/5 * * * * *")
     public void execute() {
         log.info("Message here");
     }
