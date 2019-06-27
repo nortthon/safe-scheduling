@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.nortthon</groupId>
 	<artifactId>safe-scheduling</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<packaging>pom</packaging>
 
 	<name>Safe Scheduling</name>
@@ -151,7 +151,8 @@
 		<connection>scm:git:git://github.com/nortthon/safe-scheduling.git</connection>
 		<developerConnection>scm:git:ssh://github.com:nortthon/safe-scheduling.git</developerConnection>
 		<url>https://github.com/nortthon/safe-scheduling</url>
-	</scm>
+	  <tag>safe-scheduling-0.1.0</tag>
+  </scm>
 
 	<distributionManagement>
 		<snapshotRepository>
