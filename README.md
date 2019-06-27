@@ -19,7 +19,7 @@ it's a simple way to use the native **Spring Framework Scheduling** into your sp
 <dependency>
     <groupId>io.github.nortthon</groupId>
     <artifactId>safe-scheduling-provider-mongodb</artifactId>
-    <version>1.0.0</version>
+    <version>0.1.0</version>
 </dependency>
 ```
 
