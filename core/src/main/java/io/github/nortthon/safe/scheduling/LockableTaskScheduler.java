@@ -1,5 +1,6 @@
 package io.github.nortthon.safe.scheduling;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.Trigger;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
@@ -12,13 +13,10 @@ import java.util.concurrent.ScheduledFuture;
 
 import static org.springframework.core.annotation.AnnotatedElementUtils.getMergedAnnotation;
 
+@RequiredArgsConstructor
 public class LockableTaskScheduler extends ThreadPoolTaskScheduler implements TaskScheduler {
 
-    private final Provider provider;
-
-    public LockableTaskScheduler(final Provider provider) {
-        this.provider = provider;
-    }
+    private final transient Provider provider;
 
     @Override
     public ScheduledFuture<?> schedule(final Runnable task, final Trigger trigger) {
