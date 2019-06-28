@@ -30,6 +30,7 @@
     <modules>
         <module>core</module>
         <module>mongo-provider</module>
+        <module>redis-provider</module>
     </modules>
 
     <properties>
