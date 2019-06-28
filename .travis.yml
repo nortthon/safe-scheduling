@@ -6,7 +6,7 @@ addons:
     token: $SONAR_LOGIN
 
 script:
-  - ./mvnw sonar:sonar
+  - ./mvnw verify sonar:sonar
 
 #after_success:
 #  - ./mvnw sonar:sonar -Dsonar.projectKey=nortthon_safe-scheduling -Dsonar.organization=nortthon-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_LOGIN
