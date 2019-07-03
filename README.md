@@ -6,11 +6,40 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=io.github.nortthon:safe-scheduling&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=io.github.nortthon:safe-scheduling)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=io.github.nortthon:safe-scheduling&metric=coverage)](https://sonarcloud.io/dashboard?id=io.github.nortthon:safe-scheduling)
 
-### What is this?
+## What is this?
 it's a simple way to use the native **Spring Framework Scheduling** into your spring-boot application keeping the tasks locked during the executions process avoiding multiples executions.
 
-### MongoDB Provider
-#### 1 Dependences
+## TaskScheduler Bean
+```java
+@Configuration
+@EnableScheduling
+public class SchedulerConfig {
+    
+    @Bean
+    public TaskScheduler taskScheduler(final Provider provider) {
+        final LockableTaskScheduler taskScheduler = new LockableTaskScheduler(provider);
+        taskScheduler.setPoolSize(1); // Default == 1
+        return taskScheduler;
+    }
+    
+    //Provider Bean
+}
+```
+
+## Use like this
+
+```java
+@Component
+private class Class {
+    @SafeScheduled(name = "scheduler-name", lockedFor = 4000L, cron = "*/5 * * * * *")
+    public void execute() {
+        //TODO
+    }
+}
+```
+
+## MongoDB Provider
+##### Dependences
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -19,30 +48,36 @@ it's a simple way to use the native **Spring Framework Scheduling** into your sp
 <dependency>
     <groupId>io.github.nortthon</groupId>
     <artifactId>safe-scheduling-provider-mongodb</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
-#### 2 TaskScheduler Bean
+##### Provider Bean
 ```java
 @Bean
-public TaskScheduler taskScheduler(MongoTemplate mongoTemplate) {
-    final Provider provider = new MongoProvider(mongoTemplate);
-    final LockableTaskScheduler taskScheduler = new LockableTaskScheduler(provider);
-    taskScheduler.setPoolSize(1); // Default == 1
-    return taskScheduler;
+public Provider provider(final MongoTemplate mongoTemplate) {
+    new MongoProvider(mongoTemplate);
 }
 ```
 
-#### 3 Use like this
+## Redis Provider
+##### Dependences
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+<dependency>
+    <groupId>io.github.nortthon</groupId>
+    <artifactId>safe-scheduling-provider-redis</artifactId>
+    <version>0.2.0</version>
+</dependency>
+```
 
+##### Provider Bean
 ```java
-@Component
-@EnableScheduling
-private JavaClass {
-    @SafeScheduled(name = "print-message", lockedFor = 1000L, cron = "*/2 * * * * *")
-    public void execute() {
-        log.info("Message");
-    }
+@Bean
+public Provider provider(final StringRedisTemplate redisTemplate) {
+    new RedisProvider(redisTemplate);
 }
 ```
