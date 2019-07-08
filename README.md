@@ -30,7 +30,7 @@ public class SchedulerConfig {
 
 ```java
 @Component
-private class Class {
+public class Class {
     @SafeScheduled(name = "scheduler-name", lockedFor = 4000L, cron = "*/5 * * * * *")
     public void execute() {
         //TODO
