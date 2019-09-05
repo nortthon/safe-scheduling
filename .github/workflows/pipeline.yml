@@ -13,14 +13,15 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Set up SonarCloud
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Build
       run: mvn package
     - name: Test
       run: mvn test
+    - name: Set up SonarCloud
+      uses: sonarsource/sonarcloud-github-action@master
+      run: org.sonarsource.scanner.maven:sonar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Sonar
       run: mvn sonar:sonar
