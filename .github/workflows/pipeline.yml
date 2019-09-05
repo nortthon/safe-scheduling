@@ -23,3 +23,4 @@ jobs:
     - name: Test
       run: mvn test
     - name: Sonar
+      run: mvn sonar:sonar
