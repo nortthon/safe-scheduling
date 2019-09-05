@@ -19,9 +19,8 @@ jobs:
       run: mvn test
     - name: Set up SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
-      run: org.sonarsource.scanner.maven:sonar
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Sonar
-      run: mvn sonar:sonar
+      run: un: org.sonarsource.scanner.maven:sonar
