@@ -1,4 +1,4 @@
-name: Java CI
+name: Java Pipeline CI
 on:
   push:
     branches:
