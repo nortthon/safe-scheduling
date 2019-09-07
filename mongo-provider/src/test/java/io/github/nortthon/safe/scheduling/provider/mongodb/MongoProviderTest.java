@@ -44,11 +44,12 @@ public class MongoProviderTest {
         final AtomicBoolean runned = new AtomicBoolean(false);
 
         provider.execute(() -> runned.set(true), config);
+        long now = new Date().getTime();
 
         SchedulerControl schedulers = mongoTemplate.findOne(query(where("_id").is("task1")), SchedulerControl.class);
         assertNotNull(schedulers);
-        assertTrue(schedulers.getLockedAt() <= new Date().getTime());
-        assertTrue(schedulers.getLockedUntil() > new Date().getTime());
+        assertTrue(schedulers.getLockedAt() <= now);
+        assertTrue(schedulers.getLockedUntil() > now);
         assertTrue(runned.get());
     }
 
