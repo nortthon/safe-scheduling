@@ -67,9 +67,4 @@ public class MongoProviderTest {
 
         assertFalse(runned.get());
     }
-
-    @After
-    public void after() {
-        mongoTemplate.dropCollection(SchedulerControl.class);
-    }
 }
