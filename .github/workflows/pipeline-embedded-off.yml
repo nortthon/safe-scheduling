@@ -26,7 +26,7 @@ jobs:
       - name: Build App
         run: mvn package -DskipTests
       - name: Unit Test
-        run: mvn test
+        run: mvn clean test
         env:
           SPRING_DATA_MONGODB_PORT: ${{ job.services.mongo.ports['27017'] }}
           SPRING_DATA_REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
