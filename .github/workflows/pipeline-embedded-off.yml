@@ -15,7 +15,7 @@ jobs:
       redis:
         image: redis
         ports:
-          - 6379
+          - 6379:6379
     steps:
       - name: Git Checkout
         uses: actions/checkout@v1
@@ -26,7 +26,6 @@ jobs:
       - name: Build App
         run: mvn package -DskipTests
       - name: Unit Test
-        run: mvn clean test
+        run: mvn test
         env:
           SPRING_DATA_MONGODB_PORT: ${{ job.services.mongo.ports['27017'] }}
-          SPRING_DATA_REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
