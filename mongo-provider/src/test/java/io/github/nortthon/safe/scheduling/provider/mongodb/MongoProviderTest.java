@@ -38,7 +38,7 @@ public class MongoProviderTest {
 
     @Test
     public void testLockingAndRunningTaskScheduled() {
-        final SchedulerConfig config = SchedulerConfig.builder().name("task1").lockedFor(1000L).build();
+        final SchedulerConfig config = SchedulerConfig.builder().name("task1").lockedFor(5000L).build();
 
         final AtomicBoolean runned = new AtomicBoolean(false);
 
@@ -66,5 +66,10 @@ public class MongoProviderTest {
         provider.execute(() -> runned.set(true), config);
 
         assertFalse(runned.get());
+    }
+
+    @After
+    public void after() {
+        mongoTemplate.dropCollection(SchedulerControl.class);
     }
 }
