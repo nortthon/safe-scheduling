@@ -1,7 +1,7 @@
 # Safe Scheduling
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Build Status](https://travis-ci.org/nortthon/safe-scheduling.svg?branch=master)](https://travis-ci.org/nortthon/safe-scheduling)
+[![Actions Status](https://github.com/nortthon/safe-scheduling/workflows/Java%20Pipeline%20CI/badge.svg)](https://github.com/nortthon/safe-scheduling/actions)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=io.github.nortthon:safe-scheduling&metric=alert_status)](https://sonarcloud.io/dashboard?id=io.github.nortthon:safe-scheduling)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=io.github.nortthon:safe-scheduling&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=io.github.nortthon:safe-scheduling)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=io.github.nortthon:safe-scheduling&metric=coverage)](https://sonarcloud.io/dashboard?id=io.github.nortthon:safe-scheduling)
