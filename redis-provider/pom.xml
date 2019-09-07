@@ -22,13 +22,6 @@
 			<version>${spring.boot.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>it.ozimov</groupId>
-			<artifactId>embedded-redis</artifactId>
-			<version>0.7.1</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 </project>

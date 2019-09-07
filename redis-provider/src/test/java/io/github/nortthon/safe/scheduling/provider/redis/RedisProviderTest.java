@@ -2,7 +2,6 @@ package io.github.nortthon.safe.scheduling.provider.redis;
 
 import io.github.nortthon.safe.scheduling.Provider;
 import io.github.nortthon.safe.scheduling.SchedulerConfig;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,9 +11,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
-import redis.embedded.RedisServer;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -30,15 +27,11 @@ public class RedisProviderTest {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
-    private RedisServer redisServer;
-
     private Provider provider;
 
     @Before
-    public void setup() throws IOException {
+    public void setup() {
         this.provider = new RedisProvider(redisTemplate);
-        this.redisServer = new RedisServer(6379);
-        this.redisServer.start();
     }
 
     @Test
@@ -66,10 +59,5 @@ public class RedisProviderTest {
 
         assertFalse(runned.get());
         assertEquals(true, redisTemplate.hasKey("task2"));
-    }
-
-    @After
-    public void finish() {
-        this.redisServer.stop();
     }
 }
