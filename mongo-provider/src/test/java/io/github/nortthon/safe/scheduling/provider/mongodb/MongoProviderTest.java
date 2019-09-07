@@ -21,7 +21,6 @@ import static org.junit.Assert.*;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
-@Slf4j
 @DataMongoTest
 @SpringBootConfiguration
 @EnableAutoConfiguration
@@ -40,7 +39,7 @@ public class MongoProviderTest {
 
     @Test
     public void testLockingAndRunningTaskScheduled() {
-        final SchedulerConfig config = SchedulerConfig.builder().name("task1").lockedFor(2000L).build();
+        final SchedulerConfig config = SchedulerConfig.builder().name("task1").lockedFor(5000L).build();
 
         final AtomicBoolean runned = new AtomicBoolean(false);
 
