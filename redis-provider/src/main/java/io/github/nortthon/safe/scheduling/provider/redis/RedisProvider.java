@@ -17,7 +17,7 @@ public class RedisProvider implements Provider {
     @Override
     public void execute(final Runnable task, final SchedulerConfig schedulerConfig) {
         final Duration duration = Duration.ofMillis(schedulerConfig.getLockedFor());
-        final String now = String.valueOf(new Date().toInstant().getEpochSecond());
+        final String now = String.valueOf(new Date().getTime());
 
         Optional.ofNullable(redisTemplate.opsForValue()
                 .setIfAbsent(schedulerConfig.getName(), now, duration))

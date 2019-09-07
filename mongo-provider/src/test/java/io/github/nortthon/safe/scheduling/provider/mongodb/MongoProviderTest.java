@@ -40,20 +40,16 @@ public class MongoProviderTest {
 
     @Test
     public void testLockingAndRunningTaskScheduled() {
-        final SchedulerConfig config = SchedulerConfig.builder().name("task1").lockedFor(5000L).build();
-
-        log.info(config.toString());
+        final SchedulerConfig config = SchedulerConfig.builder().name("task1").lockedFor(2000L).build();
 
         final AtomicBoolean runned = new AtomicBoolean(false);
 
         provider.execute(() -> runned.set(true), config);
 
         SchedulerControl schedulers = mongoTemplate.findOne(query(where("_id").is("task1")), SchedulerControl.class);
-        log.info(schedulers.toString());
-        log.info("{}", new Date().toInstant().toEpochMilli());
         assertNotNull(schedulers);
-        assertTrue(schedulers.getLockedAt() <= new Date().toInstant().toEpochMilli());
-        assertTrue(schedulers.getLockedUntil() > new Date().toInstant().toEpochMilli());
+        assertTrue(schedulers.getLockedAt() <= new Date().getTime());
+        assertTrue(schedulers.getLockedUntil() > new Date().getTime());
         assertTrue(runned.get());
     }
 

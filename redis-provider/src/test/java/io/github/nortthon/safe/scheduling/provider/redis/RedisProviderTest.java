@@ -50,7 +50,7 @@ public class RedisProviderTest {
     public void testLockedTask() {
         final SchedulerConfig config = SchedulerConfig.builder().name("task2").lockedFor(1000L).build();
 
-        final String now = String.valueOf(new Date().toInstant().getEpochSecond());
+        final String now = String.valueOf(new Date().getTime());
         redisTemplate.opsForValue().set(config.getName(), now, Duration.ofMillis(2000L));
 
         final AtomicBoolean runned = new AtomicBoolean(false);

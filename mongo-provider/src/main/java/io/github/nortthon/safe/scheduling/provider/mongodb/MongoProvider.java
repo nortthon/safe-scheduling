@@ -30,11 +30,11 @@ public class MongoProvider implements Provider {
 
     @Override
     public void execute(final Runnable task, final SchedulerConfig schedulerConfig) {
-        final Instant now = new Date().toInstant();
-        long until = now.plusMillis(schedulerConfig.getLockedFor()).toEpochMilli();
+        final long time = new Date().getTime();
+        long until = time + schedulerConfig.getLockedFor();
 
-        final Query query = query(where(ID).is(schedulerConfig.getName()).and(LOCKED_UNTIL).lte(now.toEpochMilli()));
-        final Update update = update(LOCKED_AT, new Date().toInstant().toEpochMilli()).set(LOCKED_UNTIL, until);
+        final Query query = query(where(ID).is(schedulerConfig.getName()).and(LOCKED_UNTIL).lte(time));
+        final Update update = update(LOCKED_AT, time).set(LOCKED_UNTIL, until);
 
         try {
             ofNullable(mongoTemplate.upsert(query, update, SchedulerControl.class)).ifPresent(u -> task.run());
