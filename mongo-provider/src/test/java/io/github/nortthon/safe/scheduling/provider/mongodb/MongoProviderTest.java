@@ -2,6 +2,7 @@ package io.github.nortthon.safe.scheduling.provider.mongodb;
 
 import io.github.nortthon.safe.scheduling.Provider;
 import io.github.nortthon.safe.scheduling.SchedulerConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,7 @@ import static org.junit.Assert.*;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
+@Slf4j
 @DataMongoTest
 @SpringBootConfiguration
 @EnableAutoConfiguration
@@ -40,11 +42,15 @@ public class MongoProviderTest {
     public void testLockingAndRunningTaskScheduled() {
         final SchedulerConfig config = SchedulerConfig.builder().name("task1").lockedFor(5000L).build();
 
+        log.info(config.toString());
+
         final AtomicBoolean runned = new AtomicBoolean(false);
 
         provider.execute(() -> runned.set(true), config);
 
         SchedulerControl schedulers = mongoTemplate.findOne(query(where("_id").is("task1")), SchedulerControl.class);
+        log.info(schedulers.toString());
+        log.info("{}", new Date().toInstant().toEpochMilli());
         assertNotNull(schedulers);
         assertTrue(schedulers.getLockedAt() <= new Date().toInstant().toEpochMilli());
         assertTrue(schedulers.getLockedUntil() > new Date().toInstant().toEpochMilli());
