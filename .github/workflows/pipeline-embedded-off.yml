@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mongo:
-        image: mongo:3.6
+        image: mongo
         ports:
-          - 27017
+          - 27017:27017
       redis:
         image: redis
         ports:
@@ -27,5 +27,3 @@ jobs:
       run: mvn package -DskipTests
     - name: Unit Test
       run: mvn test
-      env:
-        SPRING_DATA_MONGODB_PORT: ${{ job.services.mongo.ports[27017] }}
