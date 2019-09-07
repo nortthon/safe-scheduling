@@ -14,7 +14,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build App
-      run: mvn package
+      run: mvn package -DskipTests
     - name: Unit Test
       run: mvn test
     - name: Sonar
