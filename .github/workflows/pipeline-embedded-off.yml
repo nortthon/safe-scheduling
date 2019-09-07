@@ -13,7 +13,7 @@ jobs:
         ports:
           - 27017/tcp
         env:
-          SPRING_DATA_MONGODB_URI: mongodb://localhost:${{ jobs.services.mongo.ports['27017'] }}/dbSafeScheduling
+          SPRING_DATA_MONGODB_URI: "mongodb://localhost:${{ job.services.mongo.ports['27017'] }}/dbSafeScheduling"
       redis:
         image: redis
         ports:
