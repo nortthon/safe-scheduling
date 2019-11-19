@@ -129,7 +129,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Nortthon Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/nortthon</url>
+            <url>https://maven.pkg.github.com/nortthon/safe-scheduling</url>
         </repository>
     </distributionManagement>
 
