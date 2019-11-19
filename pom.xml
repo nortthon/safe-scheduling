@@ -118,12 +118,12 @@
         </license>
     </licenses>
 
-<!--    <scm>-->
-<!--        <connection>scm:git:git://github.com/nortthon/safe-scheduling.git</connection>-->
-<!--        <developerConnection>scm:git:ssh://github.com:nortthon/safe-scheduling.git</developerConnection>-->
-<!--        <url>https://github.com/nortthon/safe-scheduling</url>-->
-<!--        <tag>HEAD</tag>-->
-<!--    </scm>-->
+    <scm>
+        <connection>scm:git:git://github.com/nortthon/safe-scheduling.git</connection>
+        <developerConnection>scm:git:ssh://github.com:nortthon/safe-scheduling.git</developerConnection>
+        <url>https://github.com/nortthon/safe-scheduling</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <distributionManagement>
         <repository>
