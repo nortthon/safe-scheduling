@@ -27,4 +27,6 @@ jobs:
           -Dsonar.organization=nortthon-github \
           -Dsonar.login=$SONAR_TOKEN
     - name: Publish Github Package
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: mvn deploy -Dregistry=https://maven.pkg.github.com/nortthon -Dtoken=$GITHUB_TOKEN

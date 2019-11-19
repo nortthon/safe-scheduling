@@ -7,7 +7,7 @@
 	<parent>
 	    <groupId>io.github.nortthon</groupId>
 	    <artifactId>safe-scheduling</artifactId>
-	    <version>0.2.1-SNAPSHOT</version>
+	    <version>0.2.1</version>
 	</parent>
 
 	<properties>
