@@ -26,3 +26,5 @@ jobs:
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.organization=nortthon-github \
           -Dsonar.login=$SONAR_TOKEN
+    - name: Publish Github Package
+      run: mvn deploy -Dregistry=https://maven.pkg.github.com/nortthon -Dtoken=$GITHUB_TOKEN
