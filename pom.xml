@@ -73,27 +73,6 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <pushChanges>false</pushChanges>
-                    <localCheckout>true</localCheckout>
-                    <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.1.0</version>
                 <executions>
@@ -139,11 +118,11 @@
         </license>
     </licenses>
 
-    <scm>
-        <connection>scm:git:git://github.com/nortthon/safe-scheduling.git</connection>
-        <developerConnection>scm:git:ssh://github.com:nortthon/safe-scheduling.git</developerConnection>
-        <url>https://github.com/nortthon/safe-scheduling</url>
-        <tag>HEAD</tag>
-    </scm>
+<!--    <scm>-->
+<!--        <connection>scm:git:git://github.com/nortthon/safe-scheduling.git</connection>-->
+<!--        <developerConnection>scm:git:ssh://github.com:nortthon/safe-scheduling.git</developerConnection>-->
+<!--        <url>https://github.com/nortthon/safe-scheduling</url>-->
+<!--        <tag>HEAD</tag>-->
+<!--    </scm>-->
 
 </project>
