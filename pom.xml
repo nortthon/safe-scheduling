@@ -7,11 +7,7 @@
     <packaging>pom</packaging>
 
     <name>Safe Scheduling</name>
-    <description>
-        it's a simple way to use the native Spring Framework Scheduling
-        into your spring-boot application keeping the tasks locked during
-        the executions process avoiding multiples executions.
-    </description>
+    <description></description>
     <url>https://github.com/nortthon/safe-scheduling</url>
 
     <developers>
