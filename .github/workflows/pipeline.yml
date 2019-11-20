@@ -26,8 +26,6 @@ jobs:
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.organization=nortthon-github \
           -Dsonar.login=$SONAR_TOKEN
-    - name: Package
-      run: mvn
     - name: Deploy to Github Package Registry
       env:
         GITHUB_USERNAME: x-access-token
