@@ -13,10 +13,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build App
-      run: Compile
-    - name: Unit Test
-      run: Tests
+    - name: Compile
+      run: mvn compile
+    - name: Unit Tests
+      run: mvn test
     - name: Sonar Scan
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
