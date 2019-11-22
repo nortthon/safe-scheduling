@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.nortthon</groupId>
     <artifactId>safe-scheduling</artifactId>
-    <version>0.2.7</version>
+    <version>0.2.16</version>
     <packaging>pom</packaging>
 
     <name>Safe Scheduling</name>
